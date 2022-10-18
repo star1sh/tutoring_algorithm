@@ -1,0 +1,21 @@
+def hanoi(n, start, end) :
+    if n == 1 :
+        print(start, end)
+        return
+        
+        
+ #하노이탑을 1 > 3으로 움직이려면 총 세단계에 걸쳐야함.
+ #1.맨마지막하나빼고전부2번막대로 옮기기
+ #2.남은하나를 3번막대로 옮기기
+ #3.2번막대의 남은 원판으 전부 3번막대로 옮기기
+ 
+ #따라서 이를 재귀알고리즘을 이용해 함수를 맞 만들면,
+ 
+ 
+    hanoi(n-1, start, 6-start-end) # 1단계
+    print(start, end) # 2단계
+    hanoi_tower(n-1, 6-start-end, end) # 3단계
+    
+n = int(input())
+print(2**n-1)
+hanoi_tower(n, 1, 3)
