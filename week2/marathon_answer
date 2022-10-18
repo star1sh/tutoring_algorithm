@@ -1,0 +1,35 @@
+def selecting(x,y):
+    for k in range(0, y-1):
+        minimum = x[k][1]
+        for l in range(k, y):
+            if minimum > x[l][1]:
+                minimum = x[l][1]
+                x[k][0], x[l][0] = x[l][0], x[k][0] #등번호 교환
+                x[k][1], x[l][1] = x[l][1], x[k][1] #기록 교환
+
+rows = int(input("참가한 마라토너 인원을 입력하세요: "))
+cols = 2
+
+arr = [[0 for j in range(cols)] for i in range(rows)] #2차원배열선언
+
+for i in range(rows):
+    num = int(input("참가번호를 입력하세요: "))
+    arr[i][0] = num
+
+for j in range(rows):
+    rec = int(input("참가자의 기록을 입력하세요: "))
+    arr[j][1] = rec
+
+print("정렬 전:", arr)
+
+selecting(arr,rows)
+
+print("정렬 후:", arr)
+
+
+for k in range(3):
+
+    hour = (arr[k][1]//3600)
+    minu = (arr[k][1]%3600)//60
+    sec = (arr[k][1]%3600)%60
+    print(arr[k][0],hour,minu,sec)
