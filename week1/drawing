@@ -1,0 +1,22 @@
+def drawing(n):
+  if n==1:
+    return ['*']
+
+  Stars=drawing(n//3)
+  L=[]
+
+  for star in Stars:
+    L.append(star*3)
+  for star in Stars:
+    L.append(star+' '*(n//3)+star)
+  for star in Stars:
+    L.append(star*3)
+
+  return L
+
+N=int(input())
+print('\n'.join(draw_stars(N)))
+
+#풀이도중, 자료형을 잘못활용해 문제가 잘풀리지 않아
+#이 풀이를 참고하여 문제를 마저 풀이하였다 https://cotak.tistory.com/m/38
+#문제를풀고 오답풀이를 하는 과정을 통해 재귀알고리즘을 더 잘 이해할 수 있었ㄷ.
