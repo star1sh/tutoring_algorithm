@@ -1,0 +1,21 @@
+import sys
+
+cnt = 0
+
+
+def bubble_sort(arr):
+
+    length = len(arr)
+
+    for i in range(length):
+        for j in range(0, length - i - 1):
+            if arr[j] > arr[j + 1]:
+                cnt += 1
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+
+
+cnt = 0
+N = int(sys.stdin.readline())
+ARR = list(map(int, sys.stdin.readline().split()))
+bubble_sort(ARR)
+print(cnt)
