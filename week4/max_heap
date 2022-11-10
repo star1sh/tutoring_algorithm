@@ -1,0 +1,16 @@
+import sys
+import heapq
+
+n= int(input())
+heap = []
+for _ in range(n) :
+    x = int(sys.stdin.readline())
+    if x :
+        heapq.heappush(heap, (-x, x))
+    else :
+        if len(heap) >= 1 :
+            print(heapq.heappop(heap)[1])
+        else :
+            print(0)
+            
+#수업시간에는 내장힙 사용하지 않아서, 내장힙 사용하여 문제풀이해봄
