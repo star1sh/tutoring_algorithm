@@ -1,0 +1,26 @@
+def dfs(v):
+    visited[v] = True
+    print(v)
+    adj_list[v].sort()
+    for w in adj_list[v]:
+        if not visited[w]:
+            dfs(w)
+
+n = int(input("정점의 갯수를 입력하세요: "))
+m = int(input("간선의 갯수를 입력하세요: "))
+s = int(input("탐색 시작 정점을 입력하세요: "))
+
+adj_list = [[-1]]+[[] for _ in range(n)]
+N = len(adj_list)
+visited = [None]*N
+
+for i in range(m): #무방향 그래프 인접리스트 생성
+    edge_a, edge_b = map(int,input().split())
+    adj_list[edge_a].append(edge_b)
+    adj_list[edge_b].append(edge_a)
+
+
+print("[DFS 방문 순서]")
+dfs(s)
+
+visited = [None]*N
