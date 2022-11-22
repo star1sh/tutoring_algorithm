@@ -1,0 +1,42 @@
+class Node(object):
+    def __init__(self, item):
+        self.item = item
+        self.left = self.right = None
+        
+class BinaryTree(object):
+    def __init__(self):
+        self.root = None
+
+
+
+#전위순회 
+def preorder(self):
+        def _preorder(node):
+            print(node.item, end=' ')
+            if node.left:
+                _preorder(node.left)
+            if node.right:
+                _preorder(node.right)
+        _preorder(self.root)
+
+
+#중위순회
+def inorder(self):
+    def _inorder(node):
+        if node.left:
+            _inorder(node.left)
+        print(node.item, end=' ')
+        if node.right:
+            _inorder(node.right)
+    _inorder(self.root)
+
+
+#중위순회
+def postorder(self):
+    def _postorder(node):
+        if node.left:
+            _postorder(node.left)
+        if node.right:
+            _postorder(node.right)
+        print(node.item, end=' ')
+    _postorder(self.root)
