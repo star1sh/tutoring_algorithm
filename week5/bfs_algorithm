@@ -1,0 +1,24 @@
+def bfs(i):
+    queue = []
+    visited[i] = True
+    queue.append(i)
+    while len(queue) != 0:
+        v = queue.pop(0)
+        print(v)
+        for w in range(1,ver+1):
+            if adj_list[v][w] and not visited[w]:
+                visited[w] = True
+                queue.append(w)
+
+ver, edge, s = map(int,input().split())
+
+adj_list=[[0] * (ver + 1) for _ in range(ver + 1)]
+N = len(adj_list)
+visited = [None] * N
+
+for i in range(edge): #무방향 그래프 인접리스트 생성
+    edge_a, edge_b = map(int,input().split())
+    adj_list[edge_a][edge_b] = 1
+    adj_list[edge_b][edge_a] = 1
+
+bfs(s)
